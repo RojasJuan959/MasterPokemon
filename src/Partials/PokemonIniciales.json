@@ -1,0 +1,51 @@
+[
+    {
+        "Id": 1,
+        "Fuego": ["charmander", "charmeleon", "charizard"],
+        "Agua": ["squirtle", "wartortle", "blastoise "],
+        "Planta": ["bulbasaur", "ivysaur", "venusaur"]
+    },
+    {
+        "Id": 2,
+        "Fuego": ["cyndaquil", "quilava", "typhlosion"],
+        "Agua": ["totodile", "croconaw", "feraligatr"],
+        "Planta": ["chikorita", "bayleef", "meganium"]
+    },
+    {
+        "Id": 3,
+        "Fuego": ["torchic", "combusken", "blaziken"],
+        "Agua": ["mudkip", "marshtomp", "swampert"],
+        "Planta": ["treecko", "grovyle", "sceptile"]
+    },
+    {
+        "Id": 4,
+        "Fuego": ["chimchar", "monferno", "infernape"],
+        "Agua": ["piplup", "prinplup", "empoleon"],
+        "Planta": ["turtwig", "grotle", "torterra"]
+    },
+    {
+        "Id": 5,
+        "Fuego": ["tepig", "pignite", "emboar"],
+        "Agua": ["oshawott", "dewott", "samurott"],
+        "Planta": ["snivy", "servine", "serperior"]
+    },
+    {
+        "Id": 6,
+        "Fuego": ["fennekin", "braixen", "delphox"],
+        "Agua": ["froakie", "frogadier", "greninja"],
+        "Planta": ["chespin", "quilladin", "chesnaught"]
+    },
+    {
+        "Id": 7,
+        "Fuego": ["litten", "torracat", "incineroar"],
+        "Agua": ["popplio", "brionne", "primarina"],
+        "Planta": ["rowlet", "dartrix", "decidueye"]
+    },
+    {
+        "Id": 7,
+        "Fuego": ["scorbunny ", "raboot", "cinderace"],
+        "Agua": ["sobble", "drizzile", "inteleon"],
+        "Planta": ["grookey", "thwackey", "rillaboom"]
+    }
+    
+]
