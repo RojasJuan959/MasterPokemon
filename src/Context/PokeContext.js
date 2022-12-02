@@ -3,10 +3,8 @@ import PokeInit from "../Partials/PokemonIniciales.json";
 
 export const PokeContext = createContext();
 
-const PokemonIniciales = {};
-
 export const PokeProvider = ({ children }) => {
-  const [initialData, setInitialData] = useState(PokemonIniciales);
+  const [initialData, setInitialData] = useState([]);
   let arrayAcumulator = [];
 
   useEffect(() => {

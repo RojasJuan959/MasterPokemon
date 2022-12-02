@@ -7,8 +7,9 @@ import pokemonIniciales from "../../Partials/PokemonIniciales.json";
 
 const Home = () => {
   const { initialData } = useContext(PokeContext);
-  const { setInitialData } = useContext(PokeContext);
   const [initialDataHelper, setInitialDataHelper] = useState(initialData);
+
+  
 
   const flickityOptions = {
     percentPosition: true,
@@ -17,13 +18,18 @@ const Home = () => {
   };
 
   useEffect(() => {
-    initialData.length === 0 && setInitialDataHelper(initialData);
+    setTimeout(() => {
+      initialPokeAsignation(initialData);
+      console.log("time", initialData)
+    }, 3000);
   }, [initialData]);
+
+  const initialPokeAsignation = (data) => {
+    setInitialDataHelper(data);
+  }
 
   const getPokeGen = (genNumber, pokemonType) => {
     let pokemonWay = [];
-
-    console.log(initialDataHelper)
 
     if (pokemonType === "Fuego") {
       for (let i = 0; i < pokemonIniciales.length; i++) {
@@ -83,7 +89,7 @@ const Home = () => {
       >
         {pokemonWay.map((pokemon) => {
           return (
-            <PokeCard
+            <PokeCard key={pokemon.id}
               name={pokemon.name}
               sprites={pokemon.sprites.other.dream_world.front_default}
               hp={pokemon.stats[0].base_stat}
