@@ -1,4 +1,4 @@
-import { useContext, useEffect } from "react";
+import { useContext, useEffect, useState } from "react";
 import PokeCard from "../../Components/Card/pokeCard.js";
 import { PokeContext } from "../../Context/PokeContext.js";
 import Flickity from "react-flickity-component";
@@ -7,7 +7,8 @@ import pokemonIniciales from "../../Partials/PokemonIniciales.json";
 
 const Home = () => {
   const { initialData } = useContext(PokeContext);
-  //const { setInitialData } = useContext(PokeContext);
+  const { setInitialData } = useContext(PokeContext);
+  const [initialDataHelper, setInitialDataHelper] = useState(initialData);
 
   const flickityOptions = {
     percentPosition: true,
@@ -16,25 +17,25 @@ const Home = () => {
   };
 
   useEffect(() => {
-    
-    console.log("UseEffect",PokeContext)
-    
+    initialData.length === 0 && setInitialDataHelper(initialData);
   }, [initialData]);
 
   const getPokeGen = (genNumber, pokemonType) => {
     let pokemonWay = [];
-    console.log(initialData.length);
+
+    console.log(initialDataHelper)
+
     if (pokemonType === "Fuego") {
       for (let i = 0; i < pokemonIniciales.length; i++) {
         if (pokemonIniciales[i].Id === genNumber) {
           for (let j = 0; j < pokemonIniciales[i].Fuego.length; j++) {
-            for (let k = 0; k < initialData.length; k++) {
+            for (let k = 0; k < initialDataHelper.length; k++) {
               if (
-                initialData[k].name.includes(
+                initialDataHelper[k].name.includes(
                   pokemonIniciales[i].Fuego[j].toString()
                 )
               )
-                pokemonWay.push(initialData[k]);
+                pokemonWay.push(initialDataHelper[k]);
             }
           }
         }
@@ -44,14 +45,13 @@ const Home = () => {
       for (let i = 0; i < pokemonIniciales.length; i++) {
         if (pokemonIniciales[i].Id === genNumber) {
           for (let j = 0; j < pokemonIniciales[i].Agua.length; j++) {
-            console.log(pokemonIniciales[i].Agua[j]);
-            for (let k = 0; k < initialData.length; k++) {
+            for (let k = 0; k < initialDataHelper.length; k++) {
               if (
-                initialData[k].name.includes(
+                initialDataHelper[k].name.includes(
                   pokemonIniciales[i].Agua[j].toString()
                 )
               )
-                pokemonWay.push(initialData[k]);
+                pokemonWay.push(initialDataHelper[k]);
             }
           }
         }
@@ -61,14 +61,13 @@ const Home = () => {
       for (let i = 0; i < pokemonIniciales.length; i++) {
         if (pokemonIniciales[i].Id === genNumber) {
           for (let j = 0; j < pokemonIniciales[i].Planta.length; j++) {
-            console.log(pokemonIniciales[i].Planta[j]);
-            for (let k = 0; k < initialData.length; k++) {
+            for (let k = 0; k < initialDataHelper.length; k++) {
               if (
-                initialData[k].name.includes(
+                initialDataHelper[k].name.includes(
                   pokemonIniciales[i].Planta[j].toString()
                 )
               )
-                pokemonWay.push(initialData[k]);
+                pokemonWay.push(initialDataHelper[k]);
             }
           }
         }
@@ -103,9 +102,8 @@ const Home = () => {
   return (
     <div className="basePokeCards">
       <div className="sectionPokeCards">
-        <div className="sectionPokeCard1GenFuego">
-          {getPokeGen(1, 'Fuego')}
-        </div>
+        <div className="sectionPokeCard1GenFuego">{getPokeGen(1, "Fuego")}</div>
+        <div className="sectionPokeCard1GenAgua">{getPokeGen(1, "Agua")}</div>
       </div>
     </div>
   );

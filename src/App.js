@@ -5,11 +5,11 @@ import "./App.css";
 
 function App() {
   return (
-    <PokeProvider>
-      <div className="App">
+    <div className="App">
+      <PokeProvider>
         <Home />
-      </div>
-    </PokeProvider>
+      </PokeProvider>
+    </div>
   );
 }
 
