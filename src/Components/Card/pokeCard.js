@@ -9,9 +9,10 @@ const pokeCard = ({
   specialAttack,
   specialDefense,
   speed,
+  type,
 }) => {
   return (
-    <div className="baseCard">
+    <div className="baseCard" id={type}>
       <div className="cardNameSection">
         <p className="nameSectionTitle">{name}</p>
       </div>

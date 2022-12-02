@@ -1,25 +1,30 @@
-.basePokeCards{
+.basePokeCards {
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: center;
 
   width: 100%;
 }
 
+
+
 .sectionPokeCards {
   display: flex;
-  flex-wrap: wrap;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
 
-  max-width: 1300px;
+  width: 100%;
+  min-width: 320px;
+
+  margin: 20px 0px 0px 0px;
 }
 
-.sectionPokeCard1GenFuego{
-  position: relative;
+.sectionPokeCard1GenFuego,
+.sectionPokeCard1GenAgua,
+.sectionPokeCard1GePlanta {
+  width: 290px;
 
   overflow: hidden;
-
-  max-width: 290px;
+  margin: 0px 20px 10px 0px;
 }

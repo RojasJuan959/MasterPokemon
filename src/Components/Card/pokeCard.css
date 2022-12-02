@@ -3,16 +3,40 @@
   flex-direction: column;
 
   width: 280px;
+  height: 390px;
+  max-height: 390px;
 
-  background: rgb(181, 0, 0);
-  background: linear-gradient(
-    0deg,
-    rgba(181, 0, 0, 0.6685049019607843) 30%,
-    rgba(255, 255, 255, 0.4472163865546218) 70%
-  );
   box-shadow: 0px 0px 10px -3px black;
   border-radius: 10px;
   border: 3px solid black;
+  margin: 0px 10px 0px 0px;
+}
+
+#Fuego {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.44525547445255476) 0%,
+    rgba(255, 0, 0, 1) 100%
+  );
+}
+
+#Agua {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.44525547445255476) 0%,
+    rgba(95, 205, 217, 1) 100%
+  );
+}
+
+#Planta {
+  background: rgb(255, 255, 255);
+  background: linear-gradient(
+    0deg,
+    rgba(255, 255, 255, 0.44525547445255476) 0%,
+    rgba(5, 136, 1, 1) 100%
+  );
 }
 
 .cardNameSection {
@@ -29,26 +53,34 @@
 .cardSpriteSection {
   display: flex;
   justify-content: center;
+
+  height: 120px;
 }
 
 .spriteSection {
+  display: flex;
+  justify-content: center;
+
   border: 3px solid black;
   background-color: white;
   border-radius: 100%;
+  margin: 10px 0px 0px 0px;
   z-index: 2;
 
   width: 120px;
-  max-width: 120px;
+  height: 120px;
 }
 
 .spriteImage {
-  width: 100%;
+  width: 200px;
 }
 
 .cardLineSeparator {
   position: relative;
+
   border: 2px solid black;
-  bottom: 60px;
+  bottom: 50px;
+  margin: 0px 0px 30px 0px;
   z-index: 1;
 }
 
