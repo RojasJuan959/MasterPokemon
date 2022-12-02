@@ -2,7 +2,7 @@
     {
         "Id": 1,
         "Fuego": ["charmander", "charmeleon", "charizard"],
-        "Agua": ["squirtle", "wartortle", "blastoise "],
+        "Agua": ["squirtle", "wartortle", "blastoise"],
         "Planta": ["bulbasaur", "ivysaur", "venusaur"]
     },
     {
@@ -42,8 +42,8 @@
         "Planta": ["rowlet", "dartrix", "decidueye"]
     },
     {
-        "Id": 7,
-        "Fuego": ["scorbunny ", "raboot", "cinderace"],
+        "Id": 8,
+        "Fuego": ["scorbunny", "raboot", "cinderace"],
         "Agua": ["sobble", "drizzile", "inteleon"],
         "Planta": ["grookey", "thwackey", "rillaboom"]
     }

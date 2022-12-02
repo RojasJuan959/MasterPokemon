@@ -1,0 +1,25 @@
+.basePokeCards{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+}
+
+.sectionPokeCards {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+
+  max-width: 1300px;
+}
+
+.sectionPokeCard1GenFuego{
+  position: relative;
+
+  overflow: hidden;
+
+  max-width: 290px;
+}

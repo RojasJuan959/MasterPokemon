@@ -1,12 +1,15 @@
-import Home from './Pages/Home/Home.js';
+import Home from "./Pages/Home/Home.js";
+import PokeProvider from "./Context/PokeContext.js";
 
-import './App.css';
+import "./App.css";
 
 function App() {
   return (
-    <div className="App">
-      <Home />
-    </div>
+    <PokeProvider>
+      <div className="App">
+        <Home />
+      </div>
+    </PokeProvider>
   );
 }
 

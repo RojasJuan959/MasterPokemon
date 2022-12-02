@@ -13,7 +13,7 @@ const pokeCard = ({
   return (
     <div className="baseCard">
       <div className="cardNameSection">
-        <p className="nameSectionTitle">{name}Nombre</p>
+        <p className="nameSectionTitle">{name}</p>
       </div>
       <div className="cardSpriteSection">
         <span className="spriteSection">
