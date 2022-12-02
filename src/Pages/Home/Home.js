@@ -5,7 +5,7 @@ import Flickity from "react-flickity-component";
 
 import pokemonIniciales from "../../Partials/PokemonIniciales.json";
 
-import './Home.css'
+import "./Home.css";
 
 const Home = () => {
   const { initialData } = useContext(PokeContext);
@@ -23,9 +23,8 @@ const Home = () => {
   }, [initialData]);
 
   const getPokeGen = (genNumber, pokemonType) => {
-    let pokemonWay = [];
-
-    
+    let pokemonWay = [],
+      spriteImage = "";
 
     if (pokemonType === "Fuego") {
       for (let i = 0; i < pokemonIniciales.length; i++) {
@@ -37,7 +36,6 @@ const Home = () => {
                   pokemonIniciales[i].Fuego[j].toString()
                 )
               )
-              
                 pokemonWay.push(initialDataHelper[k]);
             }
           }
@@ -75,6 +73,8 @@ const Home = () => {
       }
     }
 
+    
+
     return (
       <Flickity
         className={"carouselPokeWay"}
@@ -82,11 +82,20 @@ const Home = () => {
         options={flickityOptions}
       >
         {pokemonWay.map((pokemon) => {
+          if (
+            pokemon.sprites.other.dream_world.front_default === null ||
+            pokemon.sprites.other.dream_world.front_default === undefined
+          ) {
+            spriteImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
+          }
+          else{
+            spriteImage = pokemon.sprites.other.dream_world.front_default
+          }
           return (
             <PokeCard
               key={pokemon.id}
               name={pokemon.name}
-              sprites={pokemon.sprites.other.dream_world.front_default}
+              sprites={spriteImage}
               hp={pokemon.stats[0].base_stat}
               attack={pokemon.stats[1].base_stat}
               defense={pokemon.stats[2].base_stat}
