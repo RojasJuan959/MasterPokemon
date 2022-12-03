@@ -2,6 +2,7 @@ import { useContext, useEffect, useState } from "react";
 import PokeCard from "../../Components/Card/pokeCard.js";
 import { PokeContext } from "../../Context/PokeContext.js";
 import Flickity from "react-flickity-component";
+import Search from "../../Assets/Search.png";
 
 import pokemonIniciales from "../../Partials/PokemonIniciales.json";
 
@@ -21,6 +22,34 @@ const Home = () => {
       setInitialDataHelper(initialData);
     }, 1000);
   }, [initialData]);
+
+  const searchPokemon = () => {
+    let pokename = document.getElementsByClassName("inputSearch")[0].value;
+
+    if (pokename === null || pokename === undefined || pokename.length === 0) {
+      alert("Escribe el nombre de un Pokémon para encontrarlo");
+      return;
+    }
+
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokename}`;
+    let pokemonfound = [];
+
+    fetch(url, {
+      cache: "no-cache",
+    })
+      .then(async (response) => {
+        if (response.status === 200) {
+          let res = await response.json();
+          pokemonfound.push(res);
+        } else {
+          alert("Sigue buscando, aún no encuentras al Pokémon");
+          return;
+        }
+      })
+      .catch(() => {});
+
+      console.log("pokefound ", pokemonfound[0]);
+  };
 
   const getPokeGen = (genNumber, pokemonType) => {
     let pokemonWay = [],
@@ -73,8 +102,6 @@ const Home = () => {
       }
     }
 
-    
-
     return (
       <Flickity
         className={"carouselPokeWay"}
@@ -86,10 +113,9 @@ const Home = () => {
             pokemon.sprites.other.dream_world.front_default === null ||
             pokemon.sprites.other.dream_world.front_default === undefined
           ) {
-            spriteImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`
-          }
-          else{
-            spriteImage = pokemon.sprites.other.dream_world.front_default
+            spriteImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokemon.id}.png`;
+          } else {
+            spriteImage = pokemon.sprites.other.dream_world.front_default;
           }
           return (
             <PokeCard
@@ -112,6 +138,9 @@ const Home = () => {
 
   return (
     <div className="basePokeCards">
+      <p className="sectionTitleMain">Master Pokemon</p>
+      <span className="sectionSeparatorMain"></span>
+      <p className="sectionTitlePokeGen">Primera Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(1, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(1, "Agua")}</div>
@@ -119,6 +148,8 @@ const Home = () => {
           {getPokeGen(1, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Segunda Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(2, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(2, "Agua")}</div>
@@ -126,6 +157,8 @@ const Home = () => {
           {getPokeGen(2, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Tercera Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(3, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(3, "Agua")}</div>
@@ -133,6 +166,8 @@ const Home = () => {
           {getPokeGen(3, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Cuarta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(4, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(4, "Agua")}</div>
@@ -140,6 +175,8 @@ const Home = () => {
           {getPokeGen(4, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Quinta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(5, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(5, "Agua")}</div>
@@ -147,6 +184,8 @@ const Home = () => {
           {getPokeGen(5, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Sexta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(6, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(6, "Agua")}</div>
@@ -154,6 +193,8 @@ const Home = () => {
           {getPokeGen(6, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Septima Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(7, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(7, "Agua")}</div>
@@ -161,11 +202,32 @@ const Home = () => {
           {getPokeGen(7, "Planta")}
         </div>
       </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">Octava Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(8, "Fuego")}</div>
         <div className="sectionPokeCard1GenAgua">{getPokeGen(8, "Agua")}</div>
         <div className="sectionPokeCard1GePlanta">
           {getPokeGen(8, "Planta")}
+        </div>
+      </div>
+      <span className="sectionSeparatorPokeGen"></span>
+      <p className="sectionTitlePokeGen">¡Busca y construye tu equipo!</p>
+      <div className="sectionSearhPokemon">
+        <div className="sectionInteractionSearch">
+          <input
+            className="inputSearch"
+            type={"text"}
+            placeholder={"Nombre del Pokemon"}
+          ></input>
+          <button
+            className="buttonAction"
+            onClick={() => {
+              searchPokemon();
+            }}
+          >
+            <img className="buttonActionImg" alt="Search" src={Search}></img>
+          </button>
         </div>
       </div>
     </div>
