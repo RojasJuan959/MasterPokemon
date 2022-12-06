@@ -52,7 +52,11 @@ const Home = () => {
           type={"NoIdentify"}
         ></PokeCard>
         <div className="catchPokemon">
-          <img className="pokeInteractionCatch" alt="Catch Pokemon" src={Pokeball}></img>
+          <img
+            className="pokeInteractionCatch"
+            alt="Catch Pokemon"
+            src={Pokeball}
+          ></img>
         </div>
       </div>
     );
@@ -180,7 +184,6 @@ const Home = () => {
           {getPokeGen(1, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
       <p className="sectionTitlePokeGen">Segunda Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(2, "Fuego")}</div>
@@ -189,7 +192,7 @@ const Home = () => {
           {getPokeGen(2, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Tercera Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(3, "Fuego")}</div>
@@ -198,7 +201,7 @@ const Home = () => {
           {getPokeGen(3, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Cuarta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(4, "Fuego")}</div>
@@ -207,7 +210,7 @@ const Home = () => {
           {getPokeGen(4, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Quinta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(5, "Fuego")}</div>
@@ -216,7 +219,7 @@ const Home = () => {
           {getPokeGen(5, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Sexta Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(6, "Fuego")}</div>
@@ -225,7 +228,7 @@ const Home = () => {
           {getPokeGen(6, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Septima Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(7, "Fuego")}</div>
@@ -234,7 +237,7 @@ const Home = () => {
           {getPokeGen(7, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">Octava Generación</p>
       <div className="sectionPokeCards">
         <div className="sectionPokeCard1GenFuego">{getPokeGen(8, "Fuego")}</div>
@@ -243,7 +246,7 @@ const Home = () => {
           {getPokeGen(8, "Planta")}
         </div>
       </div>
-      <span className="sectionSeparatorPokeGen"></span>
+
       <p className="sectionTitlePokeGen">¡Busca y construye tu equipo!</p>
       <div className="sectionSearhPokemon">
         <div className="sectionInteractionSearch">

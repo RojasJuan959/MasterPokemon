@@ -57,6 +57,9 @@
   font-family: Impact, fantasy;
   font-size: 25px;
   text-transform: uppercase;
+  color: black;
+  text-shadow: -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff,
+    1px 1px 1px #fff;
 }
 
 .cardSpriteSection {

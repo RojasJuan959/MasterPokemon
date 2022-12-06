@@ -12,6 +12,9 @@
   font-size: 70px;
   letter-spacing: -2px;
   font-weight: bold;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000,
+    1px 1px 1px #000;
 }
 
 .sectionSeparatorMain,
@@ -34,6 +37,9 @@
   font-size: 40px;
   letter-spacing: -2px;
   font-weight: bold;
+  color: white;
+  text-shadow: -1px -1px 1px #000, 1px -1px 1px #000, -1px 1px 1px #000,
+    1px 1px 1px #000;
 }
 
 .sectionPokeCards {
@@ -92,33 +98,33 @@
   height: 40px;
 }
 
-.buttonActionImg{
+.buttonActionImg {
   margin: -10px 0px 0px 0px;
-  transition: width .2s;
+  transition: width 0.2s;
 
   width: 60%;
 }
 
-.buttonActionImg:hover{
+.buttonActionImg:hover {
   width: 65%;
 }
 
-.sectionAnswerSearch{
+.sectionAnswerSearch {
   display: flex;
   align-items: center;
   margin: 0px 60px 0px 0px;
 }
 
-.catchPokemon{
-  transition: width .2s;
+.catchPokemon {
+  transition: width 0.2s;
 
   width: 60px;
 }
 
-.catchPokemon:hover{
+.catchPokemon:hover {
   width: 70px;
 }
 
-.pokeInteractionCatch{
+.pokeInteractionCatch {
   width: 100%;
 }
