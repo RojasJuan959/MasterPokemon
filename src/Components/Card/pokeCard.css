@@ -39,6 +39,15 @@
   );
 }
 
+#NoIdentify {
+  background: rgb(215, 215, 215);
+  background: radial-gradient(
+    circle,
+    rgba(215, 215, 215, 1) 55%,
+    rgba(0, 0, 0, 1) 90%
+  );
+}
+
 .cardNameSection {
   text-align: center;
   margin: 5px 0px 5px 0px;

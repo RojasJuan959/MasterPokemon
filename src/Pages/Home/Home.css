@@ -94,10 +94,31 @@
 
 .buttonActionImg{
   margin: -10px 0px 0px 0px;
+  transition: width .2s;
 
   width: 60%;
 }
 
 .buttonActionImg:hover{
   width: 65%;
+}
+
+.sectionAnswerSearch{
+  display: flex;
+  align-items: center;
+  margin: 0px 60px 0px 0px;
+}
+
+.catchPokemon{
+  transition: width .2s;
+
+  width: 60px;
+}
+
+.catchPokemon:hover{
+  width: 70px;
+}
+
+.pokeInteractionCatch{
+  width: 100%;
 }

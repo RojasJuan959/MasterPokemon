@@ -2,8 +2,9 @@ import { useContext, useEffect, useState } from "react";
 import PokeCard from "../../Components/Card/pokeCard.js";
 import { PokeContext } from "../../Context/PokeContext.js";
 import Flickity from "react-flickity-component";
-import Search from "../../Assets/Search.png";
 
+import Search from "../../Assets/Search.png";
+import Pokeball from "../../Assets/pokeball.png";
 import pokemonIniciales from "../../Partials/PokemonIniciales.json";
 
 import "./Home.css";
@@ -11,6 +12,7 @@ import "./Home.css";
 const Home = () => {
   const { initialData } = useContext(PokeContext);
   const [initialDataHelper, setInitialDataHelper] = useState(initialData);
+  const [pokeSearch, setPokeSearch] = useState([]);
 
   const flickityOptions = {
     prevNextButtons: false,
@@ -23,6 +25,39 @@ const Home = () => {
     }, 1000);
   }, [initialData]);
 
+  const answerPokemon = () => {
+    let spriteImage;
+
+    if (
+      pokeSearch.sprites.other.dream_world.front_default === null ||
+      pokeSearch.sprites.other.dream_world.front_default === undefined
+    ) {
+      spriteImage = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${pokeSearch.id}.png`;
+    } else {
+      spriteImage = pokeSearch.sprites.other.dream_world.front_default;
+    }
+
+    return (
+      <div className="sectionAnswerSearch">
+        <PokeCard
+          key={pokeSearch.id}
+          name={pokeSearch.name}
+          sprites={spriteImage}
+          hp={pokeSearch.stats[0].base_stat}
+          attack={pokeSearch.stats[1].base_stat}
+          defense={pokeSearch.stats[2].base_stat}
+          specialAttack={pokeSearch.stats[3].base_stat}
+          specialDefense={pokeSearch.stats[4].base_stat}
+          speed={pokeSearch.stats[5].base_stat}
+          type={"NoIdentify"}
+        ></PokeCard>
+        <div className="catchPokemon">
+          <img className="pokeInteractionCatch" alt="Catch Pokemon" src={Pokeball}></img>
+        </div>
+      </div>
+    );
+  };
+
   const searchPokemon = () => {
     let pokename = document.getElementsByClassName("inputSearch")[0].value;
 
@@ -31,8 +66,7 @@ const Home = () => {
       return;
     }
 
-    let url = `https://pokeapi.co/api/v2/pokemon/${pokename}`;
-    let pokemonfound = [];
+    let url = `https://pokeapi.co/api/v2/pokemon/${pokename.toLowerCase()}`;
 
     fetch(url, {
       cache: "no-cache",
@@ -40,15 +74,13 @@ const Home = () => {
       .then(async (response) => {
         if (response.status === 200) {
           let res = await response.json();
-          pokemonfound.push(res);
+          setPokeSearch(res);
         } else {
           alert("Sigue buscando, aún no encuentras al Pokémon");
           return;
         }
       })
       .catch(() => {});
-
-      console.log("pokefound ", pokemonfound[0]);
   };
 
   const getPokeGen = (genNumber, pokemonType) => {
@@ -229,6 +261,7 @@ const Home = () => {
             <img className="buttonActionImg" alt="Search" src={Search}></img>
           </button>
         </div>
+        {pokeSearch.hasOwnProperty("id") === true && answerPokemon()}
       </div>
     </div>
   );
