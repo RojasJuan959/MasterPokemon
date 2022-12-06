@@ -39,6 +39,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{hp}/260</p>
           </div>
           <div className="statsSectionN12">
             <p className="statsName">Attack</p>
@@ -51,6 +52,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{attack}/200</p>
           </div>
         </div>
         <div className="statsSectionN2">
@@ -65,6 +67,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{specialAttack}/200</p>
           </div>
           <div className="statsSectionN22">
             <p className="statsName">Speed</p>
@@ -77,6 +80,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{speed}/200</p>
           </div>
         </div>
         <div className="statsSectionN3">
@@ -91,6 +95,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{specialDefense}/260</p>
           </div>
           <div className="statsSectionN32">
             <p className="statsName">Defense</p>
@@ -103,6 +108,7 @@ const pokeCard = ({
                 }}
               ></div>
             </div>
+            <p className="statsName">{defense}/260</p>
           </div>
         </div>
       </div>
