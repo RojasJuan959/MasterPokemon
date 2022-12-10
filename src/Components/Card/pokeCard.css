@@ -58,8 +58,8 @@
   font-size: 25px;
   text-transform: uppercase;
   color: black;
-  text-shadow: -1px -1px 1px #fff, 1px -1px 1px #fff, -1px 1px 1px #fff,
-    1px 1px 1px #fff;
+  text-shadow: -1px -1px 1px #F8F5EC, 1px -1px 1px #F8F5EC, -1px 1px 1px #F8F5EC,
+    1px 1px 1px #F8F5EC;
 }
 
 .cardSpriteSection {
@@ -74,7 +74,7 @@
   justify-content: center;
 
   border: 3px solid black;
-  background-color: white;
+  background-color: #F8F5EC;
   border-radius: 100%;
   margin: 10px 0px 0px 0px;
   z-index: 2;

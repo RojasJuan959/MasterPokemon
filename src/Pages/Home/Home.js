@@ -13,6 +13,7 @@ const Home = () => {
   const { initialData } = useContext(PokeContext);
   const [initialDataHelper, setInitialDataHelper] = useState(initialData);
   const [pokeSearch, setPokeSearch] = useState([]);
+  const [pokeTeam, setPokeTeam] = useState([]);
 
   const flickityOptions = {
     prevNextButtons: false,
@@ -22,8 +23,16 @@ const Home = () => {
   useEffect(() => {
     setTimeout(() => {
       setInitialDataHelper(initialData);
+      callDraggable();
     }, 1000);
   }, [initialData]);
+
+  useEffect(() => {
+    if(pokeTeam.length > 0){
+      document.getElementsByClassName('containerPokeTeam')[0].style.visibility = 'visible'
+      callDraggable();
+    }
+  }, [pokeTeam]);
 
   const answerPokemon = () => {
     let spriteImage;
@@ -56,6 +65,13 @@ const Home = () => {
             className="pokeInteractionCatch"
             alt="Catch Pokemon"
             src={Pokeball}
+            onClick={() => {
+              let pokemon = {};
+              pokemon.sprites = pokeSearch.sprites.front_default;
+              pokemon.name = pokeSearch.name;
+              pokemon.abilities = pokeSearch.abilities;
+              setPokeTeam((pokeTeam) => [...pokeTeam, pokemon]);
+            }}
           ></img>
         </div>
       </div>
@@ -172,6 +188,53 @@ const Home = () => {
     );
   };
 
+  const callDraggable = () => {
+    let draggables = document.querySelectorAll(".draggable");
+    let containers = document.querySelectorAll(".containerPokeTeam");
+
+    draggables.forEach((draggable) => {
+      draggable.addEventListener("dragstart", () => {
+        draggable.classList.add("dragging");
+      });
+
+      draggable.addEventListener("dragend", () => {
+        draggable.classList.remove("dragging");
+      });
+    });
+
+    containers.forEach((container) => {
+      container.addEventListener("dragover", (e) => {
+        e.preventDefault();
+        let afterElement = getDragAfterElement(container, e.clientY);
+        let draggable = document.querySelector(".dragging");
+        if (afterElement == null) {
+          container.appendChild(draggable);
+        } else {
+          container.insertBefore(draggable, afterElement);
+        }
+      });
+    });
+
+    const getDragAfterElement = (container, y) => {
+      let draggableElements = [
+        ...container.querySelectorAll(".draggable:not(.dragging)"),
+      ];
+
+      return draggableElements.reduce(
+        (closest, child) => {
+          let box = child.getBoundingClientRect();
+          let offset = y - box.top - box.height / 2;
+          if (offset < 0 && offset > closest.offset) {
+            return { offset: offset, element: child };
+          } else {
+            return closest;
+          }
+        },
+        { offset: Number.NEGATIVE_INFINITY }
+      ).element;
+    };
+  };
+
   return (
     <div className="basePokeCards">
       <p className="sectionTitleMain">Master Pokemon</p>
@@ -246,7 +309,6 @@ const Home = () => {
           {getPokeGen(8, "Planta")}
         </div>
       </div>
-
       <p className="sectionTitlePokeGen">¡Busca y construye tu equipo!</p>
       <div className="sectionSearhPokemon">
         <div className="sectionInteractionSearch">
@@ -265,6 +327,31 @@ const Home = () => {
           </button>
         </div>
         {pokeSearch.hasOwnProperty("id") === true && answerPokemon()}
+      </div>
+      <div className="containerPokeTeam">
+        {pokeTeam.map((pokemon, index) => (
+          <div className="pokeContainer draggable" draggable="true" key={index}>
+            <div className="draggaSpriteSection">
+              <span className="pokeTeamSpriteSection">
+                <img
+                  className="pokeTeamSpriteImage"
+                  src={pokemon.sprites}
+                  alt="PokeTeam"
+                ></img>
+              </span>
+            </div>
+            <div className="draggaNameSection">
+              <p className="pokeTeamName">{pokemon.name}</p>
+              <div className="pokeTeamAbilities">
+                {pokemon.abilities.map((abilities) => (
+                  <span className="pokeTeamAbility">
+                    {abilities.ability.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </div>
   );
